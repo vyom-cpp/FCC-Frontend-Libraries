@@ -1,4 +1,4 @@
-1.
+1. Use Responsive Design with Bootstrap Fluid Containers
 ```html
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 <style>
@@ -58,7 +58,7 @@
 </div>
 ```
 
-2.
+2. Make Images Mobile Responsive
 ```html
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 <style>
@@ -119,7 +119,7 @@
 </div>
 ```
 
-3.
+3. Center Text with Bootstrap
 ```html
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 <style>
@@ -180,7 +180,7 @@
 </div>
 ```
 
-4.
+4. Create a Bootstrap Button
 ```html
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 <style>
@@ -243,7 +243,7 @@
 </div>
 ```
 
-5.
+5. Create a Block Element Bootstrap Button
 ```html
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 <style>
@@ -303,4 +303,134 @@
     <button type="submit">Submit</button>
   </form>
 </div>
+```
+
+6. Taste the Bootstrap Button Color Rainbow
+```html
+
+```
+
+7. Call out Optional Actions with btn-info
+```html
+
+```
+
+8. Warn Your Users of a Dangerous Action with btn-danger
+```html
+
+```
+
+9. Use Bootstrap Grid to Put Elements Side By Side
+```html
+
+```
+
+10. Ditch Custom CSS for Bootstrap
+```html
+
+```
+
+11.
+```html
+
+```
+
+12.
+```html
+
+```
+
+13.
+```html
+
+```
+
+14.
+```html
+
+```
+
+15.
+```html
+
+```
+
+16.
+```html
+
+```
+
+17.
+```html
+
+```
+
+18.
+```html
+
+```
+
+19.
+```html
+
+```
+
+20.
+```html
+
+```
+
+21.
+```html
+
+```
+
+22.
+```html
+
+```
+
+23.
+```html
+
+```
+
+24.
+```html
+
+```
+
+25.
+```html
+
+```
+
+26.
+```html
+
+```
+
+27.
+```html
+
+```
+
+28.
+```html
+
+```
+
+29.
+```html
+
+```
+
+30.
+```html
+
+```
+
+31.
+```html
+
 ```
