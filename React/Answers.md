@@ -468,11 +468,6 @@ class StatefulComponent extends React.Component {
 
 // State is local to a component, meaning only that component knows about its state unless it passes the state data to its child components as props. This encapsulation allows you to write and manage logic in one place, making your code more organized and maintainable.
 
-
-```
-
-23. Render State in the User Interface Another Way
-```jsx
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -492,7 +487,7 @@ class MyComponent extends React.Component {
 };
 ```
 
-24. Set State with this.setState
+23. Render State in the User Interface Another Way
 ```jsx
 class MyComponent extends React.Component {
   constructor(props) {
@@ -516,7 +511,7 @@ class MyComponent extends React.Component {
 };
 ```
 
-25. Set State with this.setState
+24. Set State with this.setState
 ```jsx
 class MyComponent extends React.Component {
   constructor(props) {
@@ -542,4 +537,462 @@ class MyComponent extends React.Component {
     );
   }
 };
+```
+
+25.  Bind 'this' to a Class Method
+```jsx
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: "Hello"
+    };
+    // Change code below this line
+    this.handleClick = this.handleClick.bind(this);
+    // Change code above this line
+  }
+  handleClick() {
+    this.setState({
+      text: "You clicked!"
+    });
+  }
+  render() {
+    return (
+      <div>
+        { /* Change code below this line */ }
+        <button onClick={this.handleClick}>Click Me</button>
+        { /* Change code above this line */ }
+        <h1>{this.state.text}</h1>
+      </div>
+    );
+  }
+};
+```
+
+26.  Use State to Toggle an Element
+```jsx
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibility: false
+    };
+    // change code below this line
+    this.toggleVisibility = this.toggleVisibility.bind(this);
+    // change code above this line
+  }
+  // change code below this line
+  toggleVisibility() {
+    this.setState(state => {
+      if (state.visibility === true) {
+         return { visibility: false };
+       } else {
+         return { visibility: true };
+      }
+    });
+  }
+  // change code above this line
+  render() {
+    if (this.state.visibility) {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+          <h1>Now you see me!</h1>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+        </div>
+      );
+    }
+  }
+};
+```
+
+27.  Write a Simple Counter
+```jsx
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+    // Change code below this line
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
+    this.reset = this.reset.bind(this);
+    // Change code above this line
+  }
+  // Change code below this line
+  increment(){
+    this.setState(state => ({
+      count: state.count + 1
+    }))
+  }
+
+  decrement(){
+    this.setState(state => ({
+      count: state.count - 1
+    }))
+  }
+
+  reset(){
+    this.setState(state => ({
+      count: 0
+    }))
+  }
+  // Change code above this line
+  render() {
+    return (
+      <div>
+        <button className='inc' onClick={this.increment}>Increment!</button>
+        <button className='dec' onClick={this.decrement}>Decrement!</button>
+        <button className='reset' onClick={this.reset}>Reset</button>
+        <h1>Current Count: {this.state.count}</h1>
+      </div>
+    );
+  }
+};
+```
+
+28. Create a Controlled Input
+```jsx
+class ControlledInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: ''
+    };
+    // Change code below this line
+    this.handleChange = this.handleChange.bind(this);
+    // Change code above this line
+  }
+  // Change code below this line
+  handleChange(event){
+    this.setState({
+      input: event.target.value
+    })
+  }
+  // Change code above this line
+  render() {
+    return (
+      <div>
+        { /* Change code below this line */}
+        <input value = {this.state.input} onChange = {this.handleChange}/>
+        { /* Change code above this line */}
+        <h4>Controlled Input:</h4>
+        <p>{this.state.input}</p>
+      </div>
+    );
+  }
+};
+```
+
+29. Create a Controlled Form
+```jsx
+class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: '',
+      submit: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+      input: event.target.value
+    });
+  }
+  handleSubmit(event) {
+    event.preventDefault()
+    this.setState({
+      submit: this.state.input
+    });
+  }
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            value={this.state.input}
+            onChange={this.handleChange} />
+          <button type='submit'>Submit!</button>
+        </form>
+        <h1>{this.state.submit}</h1>
+      </div>
+    );
+  }
+};
+```
+
+30. Pass State as Props to Child Components
+```jsx
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "CamperBot"
+    };
+  }
+  render() {
+    return (
+      <div>
+        // Here we will call this.state.name in order to pass the value of
+        CamperBot // to the NavBar component
+        <Navbar name={this.state.name} />
+      </div>
+    );
+  }
+}
+
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        // Since we passed in the CamperBot state value into the the NavBar
+        component above // the h1 element below will render the value passed
+        from state
+        <h1>Hello, my name is: {this.props.name}</h1>
+      </div>
+    );
+  }
+}
+```
+
+31. Pass a Callback as Props
+```jsx
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: ''
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+      inputValue: event.target.value
+    });
+  }
+  render() {
+    return (
+       <div>
+        { /* Change code below this line */ }
+        <GetInput input={this.state.inputValue} handleChange = {this.handleChange}/>
+        <RenderInput input = {this.state.inputValue}/>
+        { /* Change code above this line */ }
+       </div>
+    );
+  }
+};
+
+class GetInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>Get Input:</h3>
+        <input
+          value={this.props.input}
+          onChange={this.props.handleChange}/>
+      </div>
+    );
+  }
+};
+
+class RenderInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>Input Render:</h3>
+        <p>{this.props.input}</p>
+      </div>
+    );
+  }
+};
+```
+
+32. Use the Lifecycle Method componentWillMount
+```jsx
+// React components have several special methods that provide opportunities to perform actions at specific points in the lifecycle of a component. These are called lifecycle methods, or lifecycle hooks, and allow you to catch components at certain points in time. This can be before they are rendered, before they update, before they receive props, before they unmount, and so on. Here is a list of some of the main lifecycle methods: 
+
+// 1. componentWillMount()
+// 2. componentDidMount()
+// 3. shouldComponentUpdate()
+// 4. componentDidUpdate()
+// 5. componentWillUnmount()
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  componentWillMount() {
+    // Change code below this line
+    console.log("Hello")
+    // Change code above this line
+  }
+  render() {
+    return <div />
+  }
+};
+
+// The componentWillMount() method is called before the render() method when a component is being mounted to the DOM.
+```
+
+33. Use the Lifecycle Method componentDidMount
+```jsx
+// When you're building a React app, you often need to get data from a server. The best place to do this is in a special method called componentDidMount.
+
+// Why componentDidMount?
+
+// 1. Timing: componentDidMount runs after your component is first added to the web page (mounted to the DOM). This ensures that your component is ready and visible before you try to get data.
+// 2. State Updates: If you get data from the server and use it to update your component's state, React will automatically update (re-render) your component to show the new data.
+
+// How It Works
+
+// 1. Component Mounts: Your component appears on the page.
+// 2. API Call: Inside componentDidMount, you make a call to your server to get data.
+// 3. Update State: When the data comes back, you use setState to update your component's state with the new data.
+// 4. Re-render: React sees the state has changed and updates your component to show the new data.
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeUsers: null
+    };
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        activeUsers: 1273
+      });
+    }, 5000);
+  }
+  render() {
+    return (
+      <div>
+        {/* Change code below this line */}
+        <h1>Active Users: {this.state.activeUsers} </h1>
+        {/* Change code above this line */}
+      </div>
+    );
+  }
+}
+```
+
+34. Add Event Listeners
+```jsx
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: ''
+    };
+    this.handleEnter = this.handleEnter.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+  // Change code below this line
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress)
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress)
+  }
+  // Change code above this line
+  handleEnter() {
+    this.setState((state) => ({
+      message: state.message + 'You pressed the enter key! '
+    }));
+  }
+  handleKeyPress(event) {
+    if (event.keyCode === 13) {
+      this.handleEnter();
+    }
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+      </div>
+    );
+  }
+};
+```
+
+35. Optimize Re-Renders with shouldComponentUpdate
+```jsx
+
+```
+
+36. Introducing Inline Styles
+```jsx
+
+```
+
+37. Add Inline Styles in React
+```jsx
+
+```
+
+38. Use Advanced JavaScript in React Render Method
+```jsx
+
+```
+
+39. Render with an If-Else Condition
+```jsx
+
+```
+
+40. Use && for a More Concise Conditional
+```jsx
+
+```
+
+41. Use a Ternary Expression for Conditional Rendering
+```jsx
+
+```
+
+42. Render Conditionally from Props
+```jsx
+
+```
+
+43. Change Inline CSS Conditionally Based on Component State
+```jsx
+
+```
+
+44. Use Array.map() to Dynamically Render Elements
+```jsx
+
+```
+
+45. Give Sibling Elements to a Unique Key Attribute
+```jsx
+
+```
+
+46. Use Array.filter() to Dynamically Filter an Array
+```jsx
+
+```
+
+47. Render React on the Server with renderToString
+```jsx
+
 ```
