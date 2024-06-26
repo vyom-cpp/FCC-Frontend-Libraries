@@ -1,11 +1,12 @@
 1. Learn How Script Tags and Document Ready Work
+
 ```html
 <!-- This is important because without your document ready function, your code may run before your HTML is rendered, which would cause bugs. -->
 <!-- . All jQuery functions start with a $ (dollar sign operator or bling) -->
 <!-- You just used jQuery's .addClass() function, which allows you to add classes to elements. -->
 <!-- Now you know three ways of targeting elements: by type: $("button"), by class: $(".btn"), and by id $("#target1"). -->
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("button").addClass("animated bounce");
     $(".well").addClass("animated shake");
   });
@@ -14,56 +15,56 @@
 <!-- Only change code above this line -->
 
 <script>
-    $(document).ready(function() {
-      $("button").addClass("animated bounce");
-      $(".well").addClass("animated shake");
-      $("#target3").addClass("animated fadeout")
-    });
-  </script>
-  
-  <!-- Only change code above this line -->
-  
-  <div class="container-fluid">
-    <h3 class="text-primary text-center">jQuery Playground</h3>
-    <div class="row">
-      <div class="col-xs-6">
-        <h4>#left-well</h4>
-        <div class="well" id="left-well">
-          <button class="btn btn-default target" id="target1">#target1</button>
-          <button class="btn btn-default target" id="target2">#target2</button>
-          <button class="btn btn-default target" id="target3">#target3</button>
-        </div>
+  $(document).ready(function () {
+    $("button").addClass("animated bounce");
+    $(".well").addClass("animated shake");
+    $("#target3").addClass("animated fadeout");
+  });
+</script>
+
+<!-- Only change code above this line -->
+
+<div class="container-fluid">
+  <h3 class="text-primary text-center">jQuery Playground</h3>
+  <div class="row">
+    <div class="col-xs-6">
+      <h4>#left-well</h4>
+      <div class="well" id="left-well">
+        <button class="btn btn-default target" id="target1">#target1</button>
+        <button class="btn btn-default target" id="target2">#target2</button>
+        <button class="btn btn-default target" id="target3">#target3</button>
       </div>
-      <div class="col-xs-6">
-        <h4>#right-well</h4>
-        <div class="well" id="right-well">
-          <button class="btn btn-default target" id="target4">#target4</button>
-          <button class="btn btn-default target" id="target5">#target5</button>
-          <button class="btn btn-default target" id="target6">#target6</button>
-        </div>
+    </div>
+    <div class="col-xs-6">
+      <h4>#right-well</h4>
+      <div class="well" id="right-well">
+        <button class="btn btn-default target" id="target4">#target4</button>
+        <button class="btn btn-default target" id="target5">#target5</button>
+        <button class="btn btn-default target" id="target6">#target6</button>
       </div>
     </div>
   </div>
+</div>
 <!-- Note that we've already included both the jQuery library and the Animate.css library in the background so that you can use them in the editor. So you are using jQuery to apply the Animate.css bounce class to your button elements. -->
 ```
 
 2. Target HTML Elements with Selectors using jQuery
+
 ```html
 <!-- Ussing .removeClass() to remove classes  -->
 <!-- jQuery has a function called .css() that allows you to change the CSS of an element. -->
 
-
 <script>
-    $(document).ready(function() {
-      $("button").addClass("animated bounce");    $("button").removeClass("btn-default");
-      $(".well").addClass("animated shake");
-      $("#target3").addClass("animated fadeOut");
-  
-    });
+  $(document).ready(function () {
+    $("button").addClass("animated bounce");
+    $("button").removeClass("btn-default");
+    $(".well").addClass("animated shake");
+    $("#target3").addClass("animated fadeOut");
+  });
 </script>
-  
+
 <!-- Only change code above this line -->
-  
+
 <div class="container-fluid">
   <h3 class="text-primary text-center">jQuery Playground</h3>
   <div class="row">
@@ -88,9 +89,10 @@
 ```
 
 3. Target Elements by Class using jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("button").addClass("animated bounce");
     $(".well").addClass("animated shake");
   });
@@ -122,9 +124,10 @@
 ```
 
 4. Target Elements by Id using jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("button").addClass("animated bounce");
     $(".well").addClass("animated shake");
     $("#target3").addClass("animated fadeOut");
@@ -157,11 +160,10 @@
 ```
 
 5. Delete your jQuery Functions
+
 ```html
 <script>
-  $(document).ready(function() {
-
-  });
+  $(document).ready(function () {});
 </script>
 
 <!-- Only change code above this line. -->
@@ -190,9 +192,10 @@
 ```
 
 6. Target the Same Element with Multiple jQuery Selectors
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("button").addClass("animated");
     $(".btn").addClass("shake");
     $("#target1").addClass("btn-primary");
@@ -223,9 +226,10 @@
 ```
 
 7. Remove Classes from an Element with jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("button").addClass("animated bounce");
     $(".well").addClass("animated shake");
     $("#target3").addClass("animated fadeOut");
@@ -257,9 +261,10 @@
 ```
 
 8. Change the CSS of an Element Using jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("#target1").css("color", "red");
   });
 </script>
@@ -275,7 +280,7 @@
         <button class="btn btn-default target" id="target1">#target1</button>
         <button class="btn btn-default target" id="target2">#target2</button>
         <button class="btn btn-default target" id="target3">#target3</button>
-        </div>
+      </div>
     </div>
     <div class="col-xs-6">
       <h4>#right-well</h4>
@@ -290,12 +295,12 @@
 ```
 
 9. Disable an Element Using jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("#target1").css("color", "red");
     $("#target1").prop("disabled", true);
-
   });
 </script>
 
@@ -325,11 +330,12 @@
 ```
 
 10. Change Text Inside an Element Using jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
-    $("#target1").css('color', 'red');
-    $("#target4").html('<em>#target4</em>');
+  $(document).ready(function () {
+    $("#target1").css("color", "red");
+    $("#target4").html("<em>#target4</em>");
   });
 </script>
 
@@ -357,9 +363,10 @@
 ```
 
 11. Remove an Element using jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("#target1").css("color", "red");
     $("#target1").prop("disabled", true);
     $("#target4").remove();
@@ -392,9 +399,10 @@
 ```
 
 12. Use appendTo to move elements with jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("#target1").css("color", "red");
     $("#target1").prop("disabled", true);
     $("#target4").remove();
@@ -428,9 +436,10 @@
 ```
 
 13. Clone an Element using jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("#target1").css("color", "red");
     $("#target1").prop("disabled", true);
     $("#target4").remove();
@@ -465,9 +474,10 @@
 ```
 
 14. Target the Parent of an Element using jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("#target1").css("color", "red");
     $("#target1").prop("disabled", true);
     $("#target4").remove();
@@ -503,9 +513,10 @@
 ```
 
 15. Target the Children of an Element using jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("#target1").css("color", "red");
     $("#target1").prop("disabled", true);
     $("#target4").remove();
@@ -542,9 +553,10 @@
 ```
 
 16. Target a Specific Child of an Element using jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("#target1").css("color", "red");
     $("#target1").prop("disabled", true);
     $("#target4").remove();
@@ -582,9 +594,10 @@
 ```
 
 17. Target Even Elements using jQuery
+
 ```html
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("#target1").css("color", "red");
     $("#target1").prop("disabled", true);
     $("#target4").remove();
@@ -624,10 +637,11 @@
 ```
 
 18. Use jQuery to Modify the Entire Page
+
 ```html
 <script>
   $("body").addClass("animated hinge");
-  $(document).ready(function() {
+  $(document).ready(function () {
     $("#target1").css("color", "red");
     $("#target1").prop("disabled", true);
     $("#target4").remove();
